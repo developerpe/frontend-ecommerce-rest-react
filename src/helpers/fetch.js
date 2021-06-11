@@ -37,7 +37,8 @@ export const fetchWithToken = ( endpoint, data, method = 'GET' ) => {
             method,
             headers: {
                 'Content-type': 'application/json',
-                'token': token
+                //'token': token
+                'Authorization': `Token ${ token }`
             },
             body: JSON.stringify( data )
         });

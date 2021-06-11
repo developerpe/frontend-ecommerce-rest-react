@@ -12,7 +12,9 @@ export const NavBar = () => {
                                 <li className="active"><a data-toggle="tab" href="#Home"><i className="notika-icon notika-house"></i>
                                         Home</a>
                                 </li>
-                                <li><a data-toggle="tab" href="#mailbox"><i className="notika-icon notika-support"></i> Perfil de Usuario</a>
+                                <li><a data-toggle="tab" href="#profile"><i className="notika-icon notika-support"></i> Perfil de Usuario</a>
+                                </li>
+                                <li><a data-toggle="tab" href="#products"><i className="notika-icon notika-support"></i>Productos</a>
                                 </li>
                             </ul>
                             <div className="tab-content custom-menu-content">
@@ -22,9 +24,15 @@ export const NavBar = () => {
                                         </li>
                                     </ul>
                                 </div>
-                                <div id="mailbox" className="tab-pane notika-tab-menu-bg animated flipInX">
+                                <div id="profile" className="tab-pane notika-tab-menu-bg animated flipInX">
                                     <ul className="notika-main-menu-dropdown">
                                         <li><Link to="/user-profile">Perfil</Link>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div id="products" className="tab-pane notika-tab-menu-bg animated flipInX">
+                                    <ul className="notika-main-menu-dropdown">
+                                        <li><Link to="/products/category-products">Categoría</Link>
                                         </li>
                                     </ul>
                                 </div>

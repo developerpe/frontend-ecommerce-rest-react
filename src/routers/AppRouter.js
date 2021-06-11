@@ -22,7 +22,7 @@ export const AppRouter = () => {
   const dispatch = useDispatch();
   const { token } = useSelector(state => state.auth);
 
-  useEffect(() => {
+  useEffect(async() => {
     
     dispatch( startChecking() );
   
@@ -44,6 +44,12 @@ export const AppRouter = () => {
                 <PrivateRoute 
                     exact 
                     path="/dashboard" 
+                    component = { DasboardScreen } 
+                    isAuthenticated = { !!token }
+                />
+                <PrivateRoute 
+                    exact 
+                    path="/products/category-products" 
                     component = { DasboardScreen } 
                     isAuthenticated = { !!token }
                 />  
