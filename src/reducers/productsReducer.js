@@ -2,7 +2,10 @@ import { types } from "../types/types";
 
 const initialState = {
     columns: [],
-    rows: []
+    rows: [],
+    category_product: {
+
+    }
 }
 
 

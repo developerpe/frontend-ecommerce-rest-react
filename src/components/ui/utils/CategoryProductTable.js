@@ -1,9 +1,13 @@
 import React from 'react';
+import { ModalCegoryEdition } from '../products/ModalCegoryEdition';
 
 export const Table = ( { title, optionalText, columns, rows } ) => {
 
     return (
         <>
+
+            <ModalCegoryEdition />
+
             <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div className="normal-table-list">
                     <div className="basic-tb-hd">
@@ -21,6 +25,7 @@ export const Table = ( { title, optionalText, columns, rows } ) => {
                                                 <th>{ column }</th>
                                             )
                                         }
+                                        <th>Opciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -29,6 +34,20 @@ export const Table = ( { title, optionalText, columns, rows } ) => {
                                             <tr key={ item.id }>
                                                 <td>{ item.id }</td>
                                                 <td>{ item.name }</td>
+                                                <td>
+                                                    <button 
+                                                        className="btn btn-primary"
+                                                        data-toggle="modal" 
+                                                        data-target="#modalCategoryEdition"
+                                                    >
+                                                        EDITAR
+                                                    </button>
+                                                    <button 
+                                                        className="btn btn-danger"
+                                                    >
+                                                        ELIMINAR
+                                                    </button>
+                                                </td>
                                             </tr>
                                         ))
                                     }

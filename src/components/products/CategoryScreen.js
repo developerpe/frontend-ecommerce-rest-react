@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { loadCategories } from '../../helpers/loadCategories';
 import { types } from '../../types/types';
 import { Breadcomb } from '../ui/products/BreadcombCategory';
-import { Table } from '../ui/utils/Table'
+import { Table } from '../ui/utils/CategoryProductTable';
 
 export const CategoryScreen = () => {   
     
