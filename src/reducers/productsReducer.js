@@ -15,9 +15,15 @@ export const productsReducer = ( state = initialState, action ) => {
         case types.eventLoaded:
             return {
                 ...state,
-                columns: [ ...action.payload.columns ],
                 rows: [ ...action.payload.data ]
             }
+        
+            case types.activateCategoryProduct:
+                console.log(action);
+                return {
+                    ...state,
+                    category_product: action.payload
+                }
 
         default:
             return state;

@@ -5,5 +5,6 @@ export const types = {
     authCheckingFinish: '[Auth] Finish checking login state',
 
     eventLoaded: '[event] Events loaded',
+    activateCategoryProduct: '[event] Category Product active',
 
 }

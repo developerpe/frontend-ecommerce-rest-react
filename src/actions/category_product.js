@@ -1,5 +1,6 @@
 import React from 'react'
 import { fetchWithToken } from '../helpers/fetch';
+import { types } from '../types/types';
 
 export const registerCategory = ( { description } ) => {
     
@@ -22,3 +23,9 @@ export const registerCategory = ( { description } ) => {
 
     }
 }
+
+
+export const activateCategoryProduct = ( category ) => ({
+    type: types.activateCategoryProduct,
+    payload: category
+});

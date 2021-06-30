@@ -1,12 +1,23 @@
 import React from 'react';
-import { ModalCegoryEdition } from '../products/ModalCegoryEdition';
+import { useDispatch } from 'react-redux';
+import { activateCategoryProduct } from '../../../actions/category_product';
+import { ModalCategoryEdition } from '../products/ModalCategoryEdition';
 
-export const Table = ( { title, optionalText, columns, rows } ) => {
+
+
+
+export const Table = ( { id, title, optionalText, columns, rows } ) => {
+
+    const dispatch = useDispatch();
+
+    const getCategoryProduct = (e, id) => {
+        console.log(id);
+    }
 
     return (
         <>
 
-            <ModalCegoryEdition />
+            <ModalCategoryEdition />
 
             <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div className="normal-table-list">
@@ -39,6 +50,7 @@ export const Table = ( { title, optionalText, columns, rows } ) => {
                                                         className="btn btn-primary"
                                                         data-toggle="modal" 
                                                         data-target="#modalCategoryEdition"
+                                                        onClick={ getCategoryProduct(item) }
                                                     >
                                                         EDITAR
                                                     </button>

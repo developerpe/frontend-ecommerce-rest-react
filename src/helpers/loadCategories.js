@@ -4,10 +4,8 @@ import { fetchWithToken } from './fetch';
 export const loadCategories = async() => {
     const response = await fetchWithToken('products/category-products/');
     const body = await response.json();
-    const categories = {}
-    console.log(body);
+    const categories = {}    
 
-    categories.columns = ['ID','Nombre'];
     const data = [];
 
     body.forEach(category => {

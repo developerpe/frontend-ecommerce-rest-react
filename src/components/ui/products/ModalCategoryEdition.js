@@ -2,8 +2,8 @@ import React from 'react'
 import { useDispatch } from 'react-redux';
 import { useForm } from '../../../hooks/useForm';
 
-export const ModalCegoryEdition = () => {
-
+export const ModalCategoryEdition = ({ id, name }) => {
+    
     const dispatch = useDispatch();
     
     const [ formValues, handleInputChange ] = useForm({
@@ -28,7 +28,7 @@ export const ModalCegoryEdition = () => {
                                     <button type="button" className="close" data-dismiss="modal">&times;</button>
                                 </div>
                                 <div className="modal-body">
-                                    <h2>Edicion de Categoria</h2>
+                                    <h2>Edicion de Categoria { name }</h2>
                                     <p>Ingrese la nueva informacion de la Categoria de Productos.</p>
                                     <div className="form-group">
                                         <div className="row">
