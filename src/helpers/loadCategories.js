@@ -11,7 +11,7 @@ export const loadCategories = async() => {
     body.forEach(category => {
         data.push({
             id: category.id,
-            name: category.description
+            description: category.description
         });
     });
     categories.data = data;

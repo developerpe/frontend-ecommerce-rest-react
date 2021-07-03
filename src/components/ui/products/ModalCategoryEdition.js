@@ -1,20 +1,37 @@
-import React from 'react'
-import { useDispatch } from 'react-redux';
+import React, { useRef, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { activateCategoryProduct } from '../../../actions/category_product';
 import { useForm } from '../../../hooks/useForm';
 
-export const ModalCategoryEdition = ({ id, name }) => {
+export const ModalCategoryEdition = () => {
     
     const dispatch = useDispatch();
+    const { category_product } = useSelector(state => state.products);
     
-    const [ formValues, handleInputChange ] = useForm({
-        description: ''
-    });    
+    const [ formValues, handleInputChange, reset ] = useForm( category_product );    
 
     const { description } = formValues;
 
+    const id_category_product = useRef( category_product.id )
+
+    useEffect(() => {
+
+        if ( category_product.id !== id_category_product.current ) {
+            reset( category_product );
+            id_category_product.current = category_product.id
+        }
+
+    }, [category_product, reset])
+
+    useEffect(() => {
+
+        dispatch( activateCategoryProduct( formValues ) );
+
+    }, [formValues, dispatch])
+
     const handleCreate = (e) =>{
         e.preventDefault();
-        dispatch(  );
+        
     }
 
     return (
@@ -28,7 +45,7 @@ export const ModalCategoryEdition = ({ id, name }) => {
                                     <button type="button" className="close" data-dismiss="modal">&times;</button>
                                 </div>
                                 <div className="modal-body">
-                                    <h2>Edicion de Categoria { name }</h2>
+                                    <h2>Edicion de Categoria { category_product.description }</h2>
                                     <p>Ingrese la nueva informacion de la Categoria de Productos.</p>
                                     <div className="form-group">
                                         <div className="row">

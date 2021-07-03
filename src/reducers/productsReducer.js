@@ -19,7 +19,6 @@ export const productsReducer = ( state = initialState, action ) => {
             }
         
             case types.activateCategoryProduct:
-                console.log(action);
                 return {
                     ...state,
                     category_product: action.payload

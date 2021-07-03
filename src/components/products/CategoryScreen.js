@@ -37,7 +37,7 @@ export const CategoryScreen = () => {
     
     const columns = [
         { dataField: "id", text: "ID" },
-        { dataField: "name", text: "Descripcion" }
+        { dataField: "description", text: "Descripcion" }
     ]
 
     const rowEvents = {
@@ -80,7 +80,7 @@ export const CategoryScreen = () => {
                 id="buttonHide"
                 data-toggle="modal" 
                 data-target="#modalCategoryEdition" 
-                type = "button" 
+                type="button" 
                 className="btn btn-primary"
                 style={ style }
             >
