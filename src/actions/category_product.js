@@ -1,4 +1,6 @@
 import React from 'react'
+
+import { notification } from "../helpers/alert";
 import { eventLoaded } from '../components/products/CategoryScreen';
 import { fetchWithToken } from '../helpers/fetch';
 import { loadCategories } from '../helpers/loadCategories';
@@ -17,10 +19,12 @@ export const registerCategory = ( { description } ) => {
 
         if ( response.status === 201 ){
 
-            console.log(body);
+            notification("Felicidades",body.message,'success');
 
         }else{
-            console.log(body);
+
+            notification("ERROR",body.error.description,'error');
+        
         }
 
     }
@@ -39,11 +43,15 @@ export const updateCategory = ( formValues ) => {
         
 
         if ( response.status === 200 ){
-            const categories = await loadCategories(); 
-            dispatch( eventLoaded( categories ) ); 
+            
+            dispatch( eventLoaded( await loadCategories() ) ); 
             document.getElementById("buttonHide").click();  
+            notification("Felicidades",body.message,'success');
+        
         }else{
-            console.log(body);
+            
+            notification("ERROR",body.error.description,'error');
+        
         }
 
     }
