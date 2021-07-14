@@ -6,19 +6,19 @@ import { useForm } from '../../../hooks/useForm';
 export const ModalCategoryEdition = () => {
     
     const dispatch = useDispatch();
-    const { category_product } = useSelector(state => state.products);
-    
-    const [ formValues, handleInputChange, reset ] = useForm( category_product );    
+    const { category_product } = useSelector(state => state.products);    
+    const [ formValues, handleInputChange, reset ] = useForm( category_product );       
 
+    const id_category_product = useRef( category_product.id );
     const { description } = formValues;
-
-    const id_category_product = useRef( category_product.id )
 
     useEffect(() => {
 
         if ( category_product.id !== id_category_product.current ) {
+            
             reset( category_product );
-            id_category_product.current = category_product.id
+            id_category_product.current = category_product.id;
+        
         }
 
     }, [category_product, reset])
@@ -30,8 +30,7 @@ export const ModalCategoryEdition = () => {
     }, [formValues, dispatch])
 
     const handleCreate = (e) =>{
-        e.preventDefault();
-        
+        e.preventDefault();        
     }
 
     return (

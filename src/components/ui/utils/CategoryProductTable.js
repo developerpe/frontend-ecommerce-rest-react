@@ -6,14 +6,10 @@ import { ModalCategoryEdition } from '../products/ModalCategoryEdition';
 
 
 
-export const Table = ( { id, title, optionalText, columns, rows } ) => {
+export const Table = ( { title, optionalText, columns, rows } ) => {
 
     const dispatch = useDispatch();
-
-    const getCategoryProduct = (e, id) => {
-        console.log(id);
-    }
-
+    
     return (
         <>
 
@@ -44,13 +40,13 @@ export const Table = ( { id, title, optionalText, columns, rows } ) => {
                                         rows.map((item) => (
                                             <tr key={ item.id }>
                                                 <td>{ item.id }</td>
-                                                <td>{ item.name }</td>
+                                                <td>{ item.description }</td>
                                                 <td>
                                                     <button 
                                                         className="btn btn-primary"
                                                         data-toggle="modal" 
                                                         data-target="#modalCategoryEdition"
-                                                        onClick={ getCategoryProduct(item) }
+                                                        onClick={ () => dispatch( activateCategoryProduct(item) ) }
                                                     >
                                                         EDITAR
                                                     </button>
