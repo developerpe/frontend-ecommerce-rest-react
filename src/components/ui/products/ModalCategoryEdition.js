@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { activateCategoryProduct } from '../../../actions/category_product';
+import { activateCategoryProduct, updateCategory } from '../../../actions/category_product';
 import { useForm } from '../../../hooks/useForm';
 
 export const ModalCategoryEdition = () => {
@@ -30,7 +30,8 @@ export const ModalCategoryEdition = () => {
     }, [formValues, dispatch])
 
     const handleCreate = (e) =>{
-        e.preventDefault();        
+        e.preventDefault();  
+        dispatch( updateCategory( formValues ) );
     }
 
     return (

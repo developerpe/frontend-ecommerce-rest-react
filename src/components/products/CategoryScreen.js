@@ -9,6 +9,9 @@ import { Table } from '../ui/utils/CategoryProductTable';
 
 export const CategoryScreen = () => {   
     
+    var style = {};
+    style.display = 'none';
+
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -26,6 +29,17 @@ export const CategoryScreen = () => {
     return (
         <>            
             <Breadcomb />
+
+            <button 
+                id="buttonHide"
+                data-toggle="modal" 
+                data-target="#modalCategoryEdition" 
+                type="button" 
+                className="btn btn-primary"
+                style={ style }
+            >
+                
+            </button>  
 
             <Table 
                 title="Listado de Categorias de Productos"
