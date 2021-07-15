@@ -31,9 +31,20 @@ export const CategoryScreen = () => {
             <Breadcomb />
 
             <button 
-                id="buttonHide"
+                id="buttonUpdate"
                 data-toggle="modal" 
                 data-target="#modalCategoryEdition" 
+                type="button" 
+                className="btn btn-primary"
+                style={ style }
+            >
+                
+            </button>  
+
+            <button 
+                id="buttonDelete"
+                data-toggle="modal" 
+                data-target="#modalDeleteCategory" 
                 type="button" 
                 className="btn btn-primary"
                 style={ style }

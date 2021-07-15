@@ -45,12 +45,40 @@ export const updateCategory = ( formValues ) => {
         if ( response.status === 200 ){
             
             dispatch( eventLoaded( await loadCategories() ) ); 
-            document.getElementById("buttonHide").click();  
+            document.getElementById("buttonUpdate").click();  
             notification("Felicidades",body.message,'success');
         
         }else{
             
             notification("ERROR",body.error.description,'error');
+        
+        }
+
+    }
+}
+
+export const deleteCategory = ( id ) => {
+
+    return async(dispatch) =>{
+
+        const response = await fetchWithToken( 
+                                    `products/category-products/${ id.current }/`, 
+                                    "",
+                                    'DELETE' 
+                                );
+        
+        const body = await response.json();
+        
+
+        if ( response.status === 200 ){
+            
+            dispatch( eventLoaded( await loadCategories() ) ); 
+            document.getElementById("buttonDelete").click();  
+            notification("Felicidades",body.message,'success');
+        
+        }else{
+            
+            notification("ERROR",body.error,'error');
         
         }
 

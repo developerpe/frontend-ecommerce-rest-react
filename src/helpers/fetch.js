@@ -1,7 +1,7 @@
 
 const baseURL = process.env.REACT_APP_API_URL
 
-export const fetchWithoutToken = ( endpoint, data, method = 'GET' ) => {
+export const fetchWithoutToken = ( endpoint, data, method='GET' ) => {
 
     const url = `${ baseURL }/${ endpoint }`;
 

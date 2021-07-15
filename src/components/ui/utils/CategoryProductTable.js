@@ -2,9 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { activateCategoryProduct } from '../../../actions/category_product';
 import { ModalCategoryEdition } from '../products/ModalCategoryEdition';
-
-
-
+import { ModalDeleteCategoryProduct } from '../products/ModalDeleteCategoryProduct';
 
 export const Table = ( { title, optionalText, columns, rows } ) => {
 
@@ -14,6 +12,7 @@ export const Table = ( { title, optionalText, columns, rows } ) => {
         <>
 
             <ModalCategoryEdition />
+            <ModalDeleteCategoryProduct />
 
             <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div className="normal-table-list">
@@ -52,6 +51,9 @@ export const Table = ( { title, optionalText, columns, rows } ) => {
                                                     </button>
                                                     <button 
                                                         className="btn btn-danger"
+                                                        data-toggle="modal" 
+                                                        data-target="#modalDeleteCategory"
+                                                        onClick={ () => dispatch( activateCategoryProduct(item) ) }
                                                     >
                                                         ELIMINAR
                                                     </button>
